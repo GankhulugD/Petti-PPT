@@ -1,11 +1,25 @@
 import type { Metadata, Viewport } from "next";
-import { Manrope } from "next/font/google";
+import { IBM_Plex_Mono, Manrope, Onest } from "next/font/google";
 import "./globals.css";
+import "@/components/petti/petti.css";
 
 // Манроп нь кирилл (монгол) болон латин үсгийг хоёуланг дэмждэг.
 const manrope = Manrope({
   subsets: ["latin", "cyrillic"],
   variable: "--font-manrope",
+  display: "swap",
+});
+
+// Petti брэндийн фонт: Onest (гарчиг, текст) + IBM Plex Mono (шошго, тоо). Хоёулаа кирилл дэмждэг.
+const onest = Onest({
+  subsets: ["latin", "cyrillic"],
+  variable: "--font-onest",
+  display: "swap",
+});
+const plex = IBM_Plex_Mono({
+  subsets: ["latin", "cyrillic"],
+  weight: ["500"],
+  variable: "--font-plex",
   display: "swap",
 });
 
@@ -22,7 +36,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#171010",
+  themeColor: "#16181D",
 };
 
 export default function RootLayout({
@@ -32,7 +46,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="mn" className="h-full">
-      <body className={`${manrope.variable} h-full antialiased`}>{children}</body>
+      <body className={`${manrope.variable} ${onest.variable} ${plex.variable} h-full antialiased`}>{children}</body>
     </html>
   );
 }

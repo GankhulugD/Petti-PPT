@@ -9,11 +9,10 @@ import {
   LayoutGrid,
   Maximize,
   Minimize,
-  PawPrint,
   X,
 } from "lucide-react";
-import { FB_POST_IMAGES } from "./deckContent";
-import { SLIDES } from "./slides";
+import { FB_SHOTS as FB_POST_IMAGES } from "@/components/petti/content";
+import { Logo, SLIDES } from "@/components/petti/slides";
 
 const W = 1920;
 const H = 1080;
@@ -282,8 +281,7 @@ export default function SlideDeck() {
         {!def.bare ? (
           <footer className={cx("foot", `foot--${def.tone}`)}>
             <span className="foot__brand">
-              <PawPrint className="foot__icon" strokeWidth={2.4} />
-              Petti
+              <Logo />
             </span>
             <span className="foot__label">{def.label}</span>
             <span className="foot__page">
