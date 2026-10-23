@@ -17,6 +17,8 @@ import {
   SOLUTION,
   START,
   STRUCTURE,
+  TEAM,
+  ORDER,
   VISION,
   WHY_NOW,
   type ProductId,
@@ -562,12 +564,103 @@ function Matrix() {
   );
 }
 
-/* ───────── 12 · Vision архитектур ───────── */
+/* ───────── 12 · Баг ба төсөв ───────── */
+
+function Team() {
+  return (
+    <>
+      <Head n={12} kicker={TEAM.kicker} title={TEAM.title} part="plan" />
+      <div className="body tm">
+        <div className="card tm__team rv" style={d(2)}>
+          <p className="mono">{TEAM.teamLabel}</p>
+          {TEAM.members.map((m) => (
+            <div key={m.name} className="tm__row">
+              <span className="tm__n">{m.name}</span>
+              <span className="tm__r">
+                <b>{m.role}</b>
+                <em>{m.sub}</em>
+              </span>
+            </div>
+          ))}
+          <div className="tm__need">
+            <span className="mono">{TEAM.needLabel}</span>
+            {TEAM.need.map((t) => (
+              <span key={t} className="tm__chip">
+                {t}
+              </span>
+            ))}
+          </div>
+          <p className="tm__plan">{TEAM.plan}</p>
+        </div>
+        <div className="card card--ink tm__bud rv" style={d(3)}>
+          <p className="mono">{TEAM.budgetLabel}</p>
+          <p className="tm__total">{TEAM.total}</p>
+          {TEAM.lines.map((l) => (
+            <div key={l.name} className="bar bar--b">
+              <span className="bar__n">
+                {l.name}
+                <em>{l.sub}</em>
+              </span>
+              <span className="bar__track">
+                <span className="bar__fill" style={{ width: `${l.w}%` }} />
+              </span>
+              <span className="bar__v">{l.v}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+}
+
+/* ───────── 13 · Эхний орлого ───────── */
+
+function Order() {
+  return (
+    <>
+      <Head n={13} kicker={ORDER.kicker} title={ORDER.title} part="plan" />
+      <div className="body od">
+        <figure className="od__hero rv" style={d(2)}>
+          <img src={IMAGES.cover} alt="QR тагтай улаан нохойн хүзүүвч" />
+          <div className="od__ht">
+            <p className="mono">{ORDER.hero.label}</p>
+            <p className="od__title">{ORDER.hero.title}</p>
+            <p className="od__text">{ORDER.hero.text}</p>
+            <div className="od__tags">
+              {ORDER.hero.tags.map((t) => (
+                <span key={t} className="tag tag--red">
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+        </figure>
+        <div className="od__r">
+          <p className="mono rv" style={d(3)}>
+            {ORDER.stepsLabel}
+          </p>
+          {ORDER.steps.map((s, i) => (
+            <div key={s.n} className="od__step rv" style={d(3 + i)}>
+              <span className="od__sn">{s.n}</span>
+              <span className="od__st">{s.t}</span>
+              <span className="od__ss">{s.s}</span>
+            </div>
+          ))}
+          <p className="gp__next rv" style={d(8)}>
+            {ORDER.next}
+          </p>
+        </div>
+      </div>
+    </>
+  );
+}
+
+/* ───────── 14 · Vision архитектур ───────── */
 
 function Arch() {
   return (
     <>
-      <Head n={12} kicker={ARCH.kicker} title={ARCH.title} part="plan" />
+      <Head n={14} kicker={ARCH.kicker} title={ARCH.title} part="plan" />
       <div className="body ar">
         <div className="ar__diag rv" style={d(2)}>
           {ARCH.layers.map((l, i) => (
@@ -609,12 +702,12 @@ function Arch() {
   );
 }
 
-/* ───────── 13 · Эрсдэл ───────── */
+/* ───────── 15 · Эрсдэл ───────── */
 
 function Risks() {
   return (
     <>
-      <Head n={13} kicker={RISKS.kicker} title={RISKS.title} part="plan" />
+      <Head n={15} kicker={RISKS.kicker} title={RISKS.title} part="plan" />
       <div className="body">
         <table className="tbl tbl--risk rv" style={d(2)}>
           <thead>
@@ -639,14 +732,14 @@ function Risks() {
   );
 }
 
-/* ───────── 14 · Эхлэх цэг ───────── */
+/* ───────── 16 · Эхлэх цэг ───────── */
 
 function Start() {
   return (
     <div className="nx">
       <div className="nx__main">
         <div className="hd__k rv">
-          <span>14 — {START.kicker}</span>
+          <span>16 — {START.kicker}</span>
           <i />
           <span>{PARTS.plan}</span>
         </div>
@@ -702,6 +795,8 @@ export const SLIDES: SlideDef[] = [
   { id: "structure", label: "Төслийн бүтэц", tone: "light", Component: Structure },
   { id: "roadmap", label: "Roadmap", tone: "light", Component: Roadmap },
   { id: "matrix", label: "Урсгал × Phase", tone: "light", Component: Matrix },
+  { id: "team", label: "Баг ба төсөв", tone: "light", Component: Team },
+  { id: "order", label: "Эхний орлого", tone: "light", Component: Order },
   { id: "arch", label: "Vision архитектур", tone: "light", Component: Arch },
   { id: "risks", label: "Эрсдэл", tone: "light", Component: Risks },
   { id: "start", label: "Эхний 90 хоног", tone: "dark", bare: true, Component: Start },
