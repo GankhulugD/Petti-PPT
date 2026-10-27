@@ -794,7 +794,7 @@ export const SLIDES: SlideDef[] = [
   { id: "gps", label: "GPS хүзүүвч", tone: "light", Component: Gps },
   { id: "structure", label: "Төслийн бүтэц", tone: "light", Component: Structure },
   { id: "roadmap", label: "Roadmap", tone: "light", Component: Roadmap },
-  { id: "matrix", label: "Урсгал × Phase", tone: "light", Component: Matrix },
+  { id: "matrix", label: "Урсгал × үе шат", tone: "light", Component: Matrix },
   { id: "team", label: "Баг ба төсөв", tone: "light", Component: Team },
   { id: "order", label: "Эхний орлого", tone: "light", Component: Order },
   { id: "arch", label: "Vision архитектур", tone: "light", Component: Arch },
